@@ -1,11 +1,12 @@
 <div align='center'>
 
   ```
-     ░░░░░░   ░░░░░░  ░░░░░░      ░░░░░░  
-     ▒▒   ▒▒ ▒▒    ▒▒ ▒▒   ▒▒          ▒▒ 
-     ▒▒▒▒▒▒  ▒▒    ▒▒ ▒▒   ▒▒      ▒▒▒▒▒  
-     ▓▓      ▓▓    ▓▓ ▓▓   ▓▓     ▓▓      
-     ██       ██████  ██████      ███████ 
+    ░░░░░░   ░░░░░░  ░░░░░░      ░░░░░░  
+    ▒▒   ▒▒ ▒▒    ▒▒ ▒▒   ▒▒          ▒▒ 
+    ▒▒▒▒▒▒  ▒▒    ▒▒ ▒▒   ▒▒      ▒▒▒▒▒  
+    ▓▓      ▓▓    ▓▓ ▓▓   ▓▓          ▓▓ 
+    ██       ██████  ██████      ██████  
+
   ```
   
 </div>
@@ -14,8 +15,8 @@
 - 
 
 ## Development :computer:
-![GitHub](https://img.shields.io/github/license/LaurierComputingSociety/Pod2) 
-![GitHub pull requests](https://img.shields.io/github/issues-pr/LaurierComputingSociety/Pod2)
+![GitHub](https://img.shields.io/github/license/LaurierComputingSociety/Pod3) 
+![GitHub pull requests](https://img.shields.io/github/issues-pr/LaurierComputingSociety/Pod3)
 
 ### Requirements
 - 
