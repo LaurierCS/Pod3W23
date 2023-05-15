@@ -38,9 +38,24 @@ public class PlayerManager : MonoBehaviour
         return health;
     }
 
-    public void Heal(int amt)
+    bool CanHeal()
     {
-        SetHealth(GetHealth() + amt);
+        return GetHealth() < maxHealth;
+    }
+
+    //Returns whether or not we were able to heal
+    public bool Heal(int amt)
+    {
+        if (CanHeal())
+        {
+            SetHealth(GetHealth() + amt);
+            if(GetHealth() > maxHealth) //oopsies too much health
+            {
+                SetHealth(maxHealth); //in case we go over
+            }
+            return true;
+        }
+        return false;
     }
 
     bool CanTakeDamage()
