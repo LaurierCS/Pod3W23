@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
 
-    [SerializeField] private int maxHealth; //The player's maximum health
-    [SerializeField] private float damageDelay; //how many seconds between taking damage
+    [SerializeField] private int maxHealth = 5; //The player's maximum health
+    [SerializeField] private float damageDelay = 1f; //how many seconds between taking damage
+    [SerializeField] private float moveSpeed = 12f; //default move speed
+    [SerializeField] private float moveSpeedADSFactor = 2f; //speed reduction for ADSing -> moveSpeed = moveSpeed / moveSpeedADSFactor
 
     private int health;
     private float lastHit = 0; //When the player last took damage
@@ -14,7 +16,26 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        Spawn();
+    }
+
+    public float getMoveSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public void setMoveSpeed(float amt)
+    {
+        moveSpeed = amt;
+    }
+
+    public float getADSFactor()
+    {
+        return moveSpeedADSFactor;
+    }
+
+    public void setADSFactor(float amt)
+    {
+        moveSpeedADSFactor = amt;
     }
 
     public void DoDamage(int damage, GameObject attacker = null)
@@ -22,6 +43,7 @@ public class PlayerManager : MonoBehaviour
         if (CanTakeDamage())
         {
             SetHealth(GetHealth() - damage); //do the damage
+            lastHit = Time.time;
             if(GetHealth() <= 0)
             {
                 Die();
@@ -33,7 +55,7 @@ public class PlayerManager : MonoBehaviour
     {
         health = hp;
     }
-    int GetHealth()
+    public int GetHealth()
     {
         return health;
     }

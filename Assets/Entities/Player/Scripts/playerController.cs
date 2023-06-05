@@ -5,12 +5,11 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
 
-    
-    public Rigidbody2D rb;
-    public Weapon weapon;
 
-    public float moveSpeed = 12f;
-    public float moveSpeedADSFactor = 2f;
+    [SerializeField] private Rigidbody2D rb;
+    public Weapon weapon;
+    [SerializeField] private PlayerManager pm;
+
 
     Vector2 moveDirection;
     Vector2 mousePosition;
@@ -43,16 +42,16 @@ public class playerController : MonoBehaviour
         }
 
         moveDirection = new Vector2(moveX, moveY).normalized;
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         
     }
 
     private void FixedUpdate()
     {
-        float calcMoveSpeed = moveSpeed;
+        float calcMoveSpeed = pm.getMoveSpeed();
         if (ads) //reduce movement when ads
         {
-            calcMoveSpeed = moveSpeed / moveSpeedADSFactor;
+            calcMoveSpeed = pm.getMoveSpeed() / pm.getADSFactor();
         }
         rb.velocity = new Vector2(moveDirection.x * calcMoveSpeed, moveDirection.y * calcMoveSpeed); //prob should use delta time here?
         Vector2 aimDirection = mousePosition - rb.position;
